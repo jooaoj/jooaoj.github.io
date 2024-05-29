@@ -1,7 +1,18 @@
-### Miscellaneous
+### Skills
 - Programming - *Very good*\
-I know basic concepts and can fairly easily adapt to different problems. 
-Some programming languages and "tech" I have the most experience with include: C, Python, C#, Rust, JSX/TSX, HTML/CSS, Bash, JSON, git, Markdown, and Jest
+I know basic concepts and can fairly easily adapt to different problems. \
+Some programming languages and "tech" I have the most experience with include: 
+    - C/C++
+    - Python 
+    - C#
+    - Rust 
+    - JSX/TSX 
+    - HTML/CSS 
+    - Bash
+    - JSON
+    - git (+ remotes)
+    - Markdown 
+    - Jest
 - Office 356 & other GUI-tools - *Very good*\
 I understand GUI-tools very well and can learn them pretty quickly
 - Any operating system - *Very good*\
