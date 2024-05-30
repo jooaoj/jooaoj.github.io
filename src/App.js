@@ -7,7 +7,7 @@ import linkedin from './linkedin.png'
 import github from './social.png'
 import './App.css';
 
-const we_data = ["/2024.md", "/2023.md", "/2021.md", "/2020.md"];
+const we_data = ["/2024.md", "/2023.md", "/2021.md", "/2020.md", "/2019.md", "/2018.md"];
 const edu_data = ["/amk.md", "/high.md"];
 const text_data = ["/skills.md", "/languages.md"];
 
@@ -16,9 +16,11 @@ const EPOCH_1999_10_15 = 939992400
 const Navigation = () => {
   return (
     <div className="App-nav">
-      <NavLink to="/work-experience" className="navigation">Work Experience</NavLink><br/>
-      <Link to="/education" className="navigation">Education</Link><br/>
-      <Link to="/skills" className="navigation">Skills</Link><br/>
+      <span className="navbar">
+        <NavLink to="/work-experience" className="navigation">Work Experience</NavLink><br/>
+        <Link to="/education" className="navigation">Education</Link><br/>
+        <Link to="/skills" className="navigation">Skills</Link><br/>
+      </span>
 
       <Routes>
         <Route path="work-experience" element={<WorkExperience />} />
@@ -29,135 +31,62 @@ const Navigation = () => {
   )
 }
 
-const WorkCard = (props) => (
-  
+const Card = (props) => (
   <div className="card">
     <ParseMarkdown data={props.text} />
   </div>
 )
 
-const WorkCards = (props) => (
+const Cards = (props) => (
   <div className="cards-container">
-    { console.log(props.texts) }
     {
       props.texts.map((text, i) => (
-        <WorkCard key={i} text={text} />
+        <Card key={i} text={text} />
       ))
     }
   </div>
 )
 
 const WorkExperience = () => {
-  
-  let [texts, setTexts] = React.useState([]);
-  React.useEffect(() => {
-    async function main() {
-      const files = await Promise.all(
-        we_data.map((link) => fetch(link).then((res) => res.text()))
-      );
-      setTexts(files);
-    }
-    main();
-  }, [setTexts]);
-
+  const texts = useFetchFiles(we_data);
   return (
     <div className='App-body'>
-      <WorkCards texts={texts} />
-      {
-      /*
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[1]} />
-        </div>
-      </div>
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[2]} />
-        </div>
-      </div>
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[3]} />
-        </div>
-      </div> 
-      */
-      }
+      <Cards texts={texts} />
     </div>
   )
 }
 
 const Education = () => {
-  let [texts, setTexts] = React.useState("");
-  React.useEffect(() => {
-    async function main() {
-      const files = await Promise.all(
-        edu_data.map((link) => fetch(link).then((res) => res.text()))
-      );
-      setTexts(files);
-    }
-    main();
-  }, [setTexts]);
-
+  const texts = useFetchFiles(edu_data);
   return (
     <div className="App-body">
-      <h1>Education</h1>
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[0]} />
-        </div>
-      </div>
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[1]} />
-        </div>
-      </div>
+      <Cards texts={texts} />
     </div>
   )
 }
 
 const Skills = () => {
-  let [texts, setTexts] = React.useState("");
+  const texts = useFetchFiles(text_data);
+  return (
+    <div className="App-body">
+      <Cards texts={texts} />
+    </div>
+  )
+}
+
+const useFetchFiles = (dataLinks) => {
+  const [texts, setTexts] = React.useState([]);
   React.useEffect(() => {
-    async function main() {
+    async function fetchFiles() {
       const files = await Promise.all(
-        text_data.map((link) => fetch(link).then((res) => res.text()))
+        dataLinks.map((link) => fetch(link).then((res) => res.text()))
       );
       setTexts(files);
     }
-    main();
-  }, [setTexts]);
+    fetchFiles();
+  }, [dataLinks]);
 
-  return (
-    <div className="App-body">
-      <h1>Skills & Competencies</h1>
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[0]} />
-          {/* <ul>
-            <li>Programming - <em>Very good</em></li>
-            <p>I know basic concepts and can fairly easily adapt to different problems.<br/>
-                Some programming languages and "tech" I have the most experience with include: 
-                C, Python, C#, Rust, JSX/TSX, HTML/CSS, Bash, JSON, git, Markdown, and Jest</p>
-            <li>Office 356 & other tools - <em>Very good</em></li>
-            <p>I understand GUI-tools very well and can learn them pretty quickly</p>
-            <li>Any operating system - <em>Very good</em></li>
-            <p>Whether Windows, OSX, Ubuntu, Debian, or just something in the terminal, I can find my way home (so to speak...)</p>
-          </ul> */}
-        </div>
-      </div>
-      <div className="card">
-        <div className="content">
-          <ParseMarkdown data={texts[1]} />
-          {/* <ul>
-            <li>Finnish - <em>Native proficiency</em></li>
-            <li>English - <em>Full professional proficiency</em></li>
-            <li>Swedish - <em>Professional working proficiency</em></li>
-            <li>Russian - <em>Elementary proficiency</em></li>
-          </ul> */}
-        </div>
-      </div>
-    </div>
-  )
+  return texts;
 }
 
 const ParseMarkdown = (props) => (
@@ -166,6 +95,7 @@ const ParseMarkdown = (props) => (
   </div>
 )
 
+/*Base flexbox "slides" with pictures:
 const Card = (props) => (
   <div className="card">
     <img src={ props.imgUrl } 
@@ -176,7 +106,6 @@ const Card = (props) => (
     </div>
   </div>
 );
-
 const CardContainer = (props) => (
   <div className="cards-container">
     {
@@ -187,22 +116,9 @@ const CardContainer = (props) => (
       ))
     }
   </div>
-);
+);*/
 
 const App = () => {
-  const cardsData = [
-    {id: 1, title: 'CARD 1', content: 'Clark Kent', imgUrl: 'https://unsplash.it/200/200'},
-    {id: 2, title: 'CARD 2', content: 'Bruce Wayne', imgUrl: 'https://unsplash.it/201/200'},
-    {id: 3, title: 'CARD 3', content: 'Peter Parker', imgUrl: 'https://unsplash.it/200/201'},
-    {id: 4, title: 'CARD 4', content: 'Tony Stark', imgUrl: 'https://unsplash.it/201/201'},
-    {id: 5, title: 'CARD 5', content: 'Reed Richards', imgUrl: 'https://unsplash.it/202/200'},
-    {id: 6, title: 'CARD 6', content: 'Wade Wilson', imgUrl: 'https://unsplash.it/200/199'},
-    {id: 7, title: 'CARD 7', content: 'Peter Quill', imgUrl: 'https://unsplash.it/199/199'},
-    {id: 8, title: 'CARD 8', content: 'Steven Rogers', imgUrl: 'https://unsplash.it/199/200'},
-    {id: 9, title: 'CARD 9', content: 'Bruce Banner', imgUrl: 'https://unsplash.it/200/198'},
-    {id: 10, title: 'CARD 10', content: 'Vincent Strange', imgUrl: 'https://unsplash.it/198/199'},
-  ]
-
   const dynamicAge = (epochBirth) => {
     let seconds = Date.now() / 1000;
     let ageSeconds = seconds - epochBirth;
@@ -218,8 +134,7 @@ const App = () => {
         <a 
           className='App-link'
           href='/'
-          rel='noopener noreferrer'
-        >
+          rel='noopener noreferrer'>
           <img src={logo} className="App-logo" alt="logo" />
         </a>
         <div className="elevator-pitch">
@@ -239,7 +154,7 @@ const App = () => {
 
       <Navigation />
 
-      <CardContainer cards={cardsData} />
+      {/*<CardContainer cards={cardsData} />*/}
 
       <footer className='App-footer'>
         <div>

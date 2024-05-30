@@ -39,6 +39,8 @@ em {
 
 .App-nav {
   text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .navigation {
@@ -71,13 +73,14 @@ em {
   box-shadow: 0 1px 1rem -4px #000;
   background: #fff;
   margin: 1rem;
-  margin-left: 18%;
-  padding-left: 25%;
-  padding-right: 25%; 
   overflow: hidden;
   border-radius: 6px;
-  cursor: pointer;
   transition: all 250ms ease-in-out;
+
+  a {
+    text-decoration: none;
+    color: #000;
+  }
   
   img {
     width: 250px;
@@ -120,7 +123,6 @@ em {
 }*/
 
 .App-footer {
-  margin-top: 5%;
   background-color: black;
   padding: 5%;
   text-align: right;
