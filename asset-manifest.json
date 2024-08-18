@@ -1,18 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.b10f2bd4.css",
-    "main.js": "/static/js/main.5e7a008f.js",
+    "main.css": "/static/css/main.5246165f.css",
+    "main.js": "/static/js/main.043b67af.js",
     "static/js/453.6be6c249.chunk.js": "/static/js/453.6be6c249.chunk.js",
+    "static/media/mie.png": "/static/media/mie.ef4b543f5629f511e01f.png",
     "static/media/social.png": "/static/media/social.1d332db04bc2d9ec4da2.png",
-    "static/media/logo_jj_alt.svg": "/static/media/logo_jj_alt.b1fd7af47756f6f76c91614dbc19e5e9.svg",
     "static/media/linkedin.png": "/static/media/linkedin.f249b38224ca41a0b909.png",
+    "static/media/logo.svg": "/static/media/logo.489fff331062edd8fa43c8c15eee832e.svg",
+    "static/media/logo_jj_alt2.svg": "/static/media/logo_jj_alt2.17ba39ad4e313279e28d23b06045340e.svg",
+    "static/media/20240818_JJPI-React.svg": "/static/media/20240818_JJPI-React.30831de7d54156b71fef4c30aec6f697.svg",
     "index.html": "/index.html",
-    "main.b10f2bd4.css.map": "/static/css/main.b10f2bd4.css.map",
-    "main.5e7a008f.js.map": "/static/js/main.5e7a008f.js.map",
+    "main.5246165f.css.map": "/static/css/main.5246165f.css.map",
+    "main.043b67af.js.map": "/static/js/main.043b67af.js.map",
     "453.6be6c249.chunk.js.map": "/static/js/453.6be6c249.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b10f2bd4.css",
-    "static/js/main.5e7a008f.js"
+    "static/css/main.5246165f.css",
+    "static/js/main.043b67af.js"
   ]
 }

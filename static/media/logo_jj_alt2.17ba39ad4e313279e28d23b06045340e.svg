@@ -1,0 +1,17 @@
+<svg width="120" height="120" version="1.1" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+ <g fill="#6666cc">
+  <text transform="matrix(2.0578 0 0 1.6493 12.045 17.229)" x="39.380383" y="44.01292" font-family="Consolas" font-size="85.333px" text-align="center" text-anchor="middle" style="inline-size:121.955;white-space:pre" xml:space="preserve"/>
+  <text transform="rotate(.14421)" x="86.294739" y="94.971199" font-family="Consolas" font-size="120.95px" stroke-width="1.4174" text-align="center" text-anchor="middle" xml:space="preserve"><tspan x="86.294739" y="94.971199" font-family="Consolas" stroke-width="1.4174">j</tspan></text>
+  <text style="shape-inside:url(#rect1228);white-space:pre" xml:space="preserve"/>
+ </g>
+ <g fill="#66c">
+  <rect x=".0054338" y=".0071389" width="61.865" height="119.95" ry="7.6014" stroke-width=".96783"/>
+  <rect x="53.291" y="-.0056869" width="8.7978" height="10.587" ry="0" stroke-width="1.6702"/>
+  <rect x="61.076" y="1.1601" width=".066291" height=".055243"/>
+  <rect x="61.132" y=".3646" width=".44194" height=".35355"/>
+ </g>
+ <rect x="63.242" y="35.576" width="3.403" height="7.8224" fill="none"/>
+ <rect x="64.126" y="41.675" width="1.5468" height=".92808" fill="none"/>
+ <rect x="61.874" y=".00096142" width="1.2155" height="120.02" fill="#fff" stroke-width="4.8979"/>
+ <rect x="53.652" y="114.22" width="8.2201" height="5.7231" rx="0" ry="2.8616" fill="#66c" stroke-width="1.085"/>
+</svg>
