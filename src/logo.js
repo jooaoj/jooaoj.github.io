@@ -1,0 +1,13 @@
+
+const Logo = () => {
+    return (
+        <svg version="1.1" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#333333" font-family="Consolas" text-anchor="middle">
+                <text x="184.37999" y="475.13046" font-size="640.25px" stroke-width="7.5029" text-align="center" xml:space="preserve"><tspan x="184.37999" y="475.13046" fill="#333333" font-family="'Comic Sans MS'" stroke-width="7.5029">J</tspan></text>
+                <text transform="scale(-1,1)" x="-390.18176" y="316.72897" font-size="425.8px" stroke-width="4.9898" text-align="center" xml:space="preserve"><tspan x="-390.18176" y="316.72897" fill="#333333" font-family="'Comic Sans MS'" stroke-width="4.9898">J</tspan></text>
+            </g>
+        </svg>
+    )
+}
+
+export default Logo;
