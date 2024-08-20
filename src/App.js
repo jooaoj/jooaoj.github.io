@@ -21,33 +21,7 @@ const teksti_data = ["/taidot.md", "/kielet.md"]
 
 const EPOCH_1999_10_15 = 939992400
 var isEng = false;
-
-const Navigation = () => {
-  return (
-    <>
-      <div className="App-nav">
-        <NavLink to="/eng">
-          {/* <Logo /> */}
-          <img src={jjpi} className="App-logo" alt="logo" style={{ height: 64, width: 64 }} />
-        </NavLink>
-        <Link to="/work-experience" className="navigation">Experience</Link>
-        <Link to="/education" className="navigation">Education</Link>
-        <Link to="/skills" className="navigation">Skills</Link>
-        {
-          isEng
-          ? <Link to="/fin" className="navigation-split">🇫🇮</Link>
-          : <Link to="/eng" className="navigation-split">🇬🇧/🇺🇸</Link>
-        }
-      </div>
-      <Routes>
-        <Route path="work-experience" element={<WorkExperience />} />
-        <Route path="education" element={<Education />} />
-        <Route path="skills" element={<Skills />} />
-        <Route path="lang" element={() => !isEng} />
-      </Routes>
-    </>
-  )
-}
+var isCont = false;
 
 const Pitch = (props) => {
   const dynamicAge = (epochBirth) => {
@@ -72,6 +46,7 @@ const Pitch = (props) => {
         I am well versed in all kinds
         of <em>software engineering</em>.
       </p>
+      <img src={mie} className="App-image" alt="Picture of a blonde, white male with glasses."></img>
     </div>
   )
 }
@@ -180,12 +155,45 @@ const Contact = () => {
   )
 }
 
+const Layout = ({ children }) => {
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  return (
+    <>
+      <div className="App-nav">
+        <NavLink to="/">
+          {/* <Logo /> */}
+          <img src={jjpi} className="App-logo" alt="logo" style={{ height: 64, width: 64 }} />
+        </NavLink>
+        <Link to="/work-experience" className="navigation">Experience</Link>
+        <Link to="/education" className="navigation">Education</Link>
+        <Link to="/skills" className="navigation">Skills</Link>
+        {
+          isEng
+          ? <Link to="/fin" className="navigation-split">🇫🇮</Link>
+          : <Link to="/" className="navigation-split">🇬🇧/🇺🇸</Link>
+        }
+      </div>
+      <div className="App-body">
+        { isHome && <Pitch /> }
+        { children }
+      </div>
+    </>
+  );
+}
+
 const App = () => {
   return (
     <div className="App">
-      <Navigation />
-      <Pitch />
-      <hr />
+      <Layout>
+        <Routes>
+          <Route path="/" element={null} />
+          <Route path="work-experience" element={<WorkExperience />} />
+          <Route path="education" element={<Education />} />
+          <Route path="skills" element={<Skills />} />
+        </Routes>
+      </Layout>
       <Contact />
     </div>
   );
