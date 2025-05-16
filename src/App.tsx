@@ -3,8 +3,8 @@ import './App.css';
 export function App() {
   return (
     <>
-      <h1>Parcel React App</h1>
-      <p>Edit <code>src/App.tsx</code> to get started!</p>
+      <h1>Jooa (Oliver Jaakkola)</h1>
+      <p><code>In maintenance</code></p>
     </>
   );
 }
